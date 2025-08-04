@@ -86,6 +86,8 @@ library StudentLib {
       require(_index < s.students.length, "Student does not exist");
       s.students[_index] = s.students[s.students.length - 1];
 
+      s.students.pop();
+
       return "DELETED SUCCESSFULLY";
     }
 
