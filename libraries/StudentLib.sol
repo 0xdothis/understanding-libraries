@@ -66,14 +66,14 @@ library StudentLib {
     return s.students[_index];
 
   }
- function get_new_student(uint256 _index) internal view returns (Student memory) {
+ function get_new_student(uint256 _index) internal view returns (Student storage) {
    
   State storage s = AppStorage();
 
    return s.students[_index];
  }  
 
-  function get_new_students() internal view returns (Student[] memory) {
+  function get_new_students() internal view returns (Student[] storage) {
 
   State storage s = AppStorage();
 

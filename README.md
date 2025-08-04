@@ -26,3 +26,8 @@ I was initially returning some values from some functions since my contract logi
 - Errors with function arguments and return types
   I was able to fix the error by removing the return type from the functions in the interface and also from my contracts.
 
+- I initially had issues with my `get_students()` and `get_student(_index)` I thought returning the value from the library alone would be enough, but I was wrong. I needed to also return the value from the contract and make sure my Interface function signature matches it also. Basically i returned from the interface the same thing i was returning from the Library.
+
+## Summary
+
+I learnt and practiced how to abstract my contract logic and put everything in my library and import it into my contract, in my own case I imported my library into my interface and imported my interface into my contract giving me access to all the functions and logic in my library.

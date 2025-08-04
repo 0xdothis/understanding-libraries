@@ -9,6 +9,7 @@ import "../interface/IStudent.sol";
 
 contract StudentManagement is IStudent {
 
+
   //Accessing data saved into the student library   
 // Commented out the state variable since its been used from the libray
 
@@ -22,30 +23,32 @@ contract StudentManagement is IStudent {
 
   }
 
-   function get_student(uint256 _index) external view {
-    StudentLib.get_new_student(_index);
+  function get_student(uint256 _index) external view returns(StudentLib.Student memory) {
+    return StudentLib.get_new_student(_index);
 
-   }
-
-   function get_students() external view {
-     StudentLib.get_new_students();
-
- }
-
- function update_student(uint _index, string memory _name, uint32 _age) external {
-   
-   StudentLib.update_new_student(_index, _name, _age);
-
- }
-
-function update_hobby(uint _index, StudentLib.Hobbies _hobby) external {
-
- StudentLib.update_new_hobby(_index, _hobby);
-
-}
-
-  function delete_student(uint _index) external {
-     StudentLib.delete_new_student(_index);
   }
 
- }
+  function get_students() external view returns (StudentLib.Student[] memory) {
+     return StudentLib.get_new_students();
+
+  }
+
+  function update_student(uint _index, string memory _name, uint32 _age) external returns (StudentLib.Student memory) {
+   
+   return StudentLib.update_new_student(_index, _name, _age);
+
+  }
+
+  function update_hobby(uint _index, StudentLib.Hobbies _hobby) external returns (StudentLib.Student memory) {
+
+    return StudentLib.update_new_hobby(_index, _hobby);
+
+  }
+
+  function delete_student(uint _index) external returns (string memory) {
+
+    return StudentLib.delete_new_student(_index);
+  }
+
+
+}
